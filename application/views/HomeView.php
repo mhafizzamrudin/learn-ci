@@ -9,6 +9,7 @@
         <title>Dashboard</title>
         <link href="<?=base_url('assets/sbadmin/')?>css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <link rel="stylesheet" href="<?=base_url('assets/fancybox/jquery.fancybox.min.css')?>">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -213,7 +214,9 @@
                                                 <td><?=$value['title']?></td>
                                                 <td><?=$value['description']?></td>
                                                 <td>
-                                                    <img style="max-width:200px;" src="<?=base_url('assets/uploads/')?><?=$value['image']?>" alt="">
+                                                    <a href="<?=base_url('assets/uploads/')?><?=$value['image']?>" data-fancybox="images" data-caption="<?=$value['description']?>">
+                                                        <img style="max-width:200px;" src="<?=base_url('assets/uploads/')?><?=$value['image']?>" alt="<?=$value['description']?>">
+                                                    </a>
                                                 </td>
                                                 <td>
                                                     <button data-toggle="modal" data-target="#edit<?=$value['id']?>" <?=($this->session->userdata('user')['id'] == $value['user_id']) ? '' : 'disabled'?> class="btn btn-warning">Edit</button>
@@ -309,5 +312,6 @@
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="<?=base_url('assets/sbadmin/')?>assets/demo/datatables-demo.js"></script>
+        <script src="<?=base_url('assets/fancybox/jquery.fancybox.min.js')?>"></script>
     </body>
 </html>
