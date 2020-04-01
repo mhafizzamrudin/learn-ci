@@ -216,8 +216,8 @@
                                                     <img style="max-width:200px;" src="<?=base_url('assets/uploads/')?><?=$value['image']?>" alt="">
                                                 </td>
                                                 <td>
-                                                    <button <?=($this->session->userdata('user')['id'] == $value['user_id']) ? '' : 'disabled'?> class="btn btn-warning">Edit</button>
-                                                    <button <?=($this->session->userdata('user')['id'] == $value['user_id']) ? '' : 'disabled'?> class="btn btn-danger">Delete</button>
+                                                    <button data-toggle="modal" data-target="#edit<?=$value['id']?>" <?=($this->session->userdata('user')['id'] == $value['user_id']) ? '' : 'disabled'?> class="btn btn-warning">Edit</button>
+                                                    <button data-toggle="modal" data-target="#delete<?=$value['id']?>" <?=($this->session->userdata('user')['id'] == $value['user_id']) ? '' : 'disabled'?> class="btn btn-danger">Delete</button>
                                                 </td>
                                             </tr>
                                             <?php } ?>
@@ -228,6 +228,64 @@
                         </div>
                     </div>
                 </main>
+
+                <?php foreach ($books as $key => $value) { ?>
+                <div class="modal fade" id="edit<?=$value['id']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <form action="<?=site_url('book/edit/')?><?=$value['id']?>" method="post" enctype='multipart/form-data'>
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Edit Book</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label>Title</label>
+                                        <input name="title" value="<?=$value['title']?>" type="text" class="form-control" placeholder="Enter book title">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea name="description" class="form-control" rows="2"><?=$value['description']?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Image</label>
+                                        <input name="image" type="file" class="form-control-file">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="delete<?=$value['id']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <form action="<?=site_url('book/delete/')?><?=$value['id']?>" method="post" enctype='multipart/form-data'>
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Delete Book</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Delete</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
+
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
