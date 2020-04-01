@@ -21,8 +21,8 @@
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
                                         <form action="<?=site_url('user/login')?>" method="post">
-                                            <div class="form-group"><label class="small mb-1" for="inputUsername">Username</label><input name="username" class="form-control py-4" id="inputUsername" type="text" placeholder="Enter username" /></div>
-                                            <div class="form-group"><label class="small mb-1" for="inputPassword">Password</label><input name="password" class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" /></div>
+                                            <div class="form-group"><label class="small mb-1" for="inputUsername">Username</label><input required name="username" class="form-control py-4" id="inputUsername" type="text" placeholder="Enter username" /></div>
+                                            <div class="form-group"><label class="small mb-1" for="inputPassword">Password</label><input required name="password" class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" /></div>
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><a class="small" href="password.html"></a><button type="submit" class="btn btn-primary" href="index.html">Login</button></div>
                                         </form>
                                     </div>

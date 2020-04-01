@@ -23,13 +23,13 @@
                                         <form action="<?=site_url('user/register')?>" method="post">
                                             <div class="form-row">
                                                 <div class="col-md-12">
-                                                    <div class="form-group"><label class="small mb-1" for="inputName">Name</label><input name="name" class="form-control py-4" id="inputName" type="text" placeholder="Enter name" /></div>
+                                                    <div class="form-group"><label class="small mb-1" for="inputName">Name</label><input required name="name" class="form-control py-4" id="inputName" type="text" placeholder="Enter name" /></div>
                                                 </div>
                                             </div>
-                                            <div class="form-group"><label class="small mb-1" for="inputUsername">Username</label><input name="username" class="form-control py-4" id="inputUsername" type="text" placeholder="Enter username" /></div>
+                                            <div class="form-group"><label class="small mb-1" for="inputUsername">Username</label><input required name="username" class="form-control py-4" id="inputUsername" type="text" placeholder="Enter username" /></div>
                                             <div class="form-row">
                                                 <div class="col-md-12">
-                                                    <div class="form-group"><label class="small mb-1" for="inputPassword">Password</label><input name="password" class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" /></div>
+                                                    <div class="form-group"><label class="small mb-1" for="inputPassword">Password</label><input required name="password" class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" /></div>
                                                 </div>
                                             </div>
                                             <div class="form-group mt-4 mb-0"><button type="submit" class="btn btn-primary btn-block" href="login.html">Create Account</button></div>
